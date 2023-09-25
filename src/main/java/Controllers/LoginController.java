@@ -111,7 +111,7 @@ public class LoginController extends HttpServlet {
                     }
                }else{
                    request.setAttribute("error", "Wrong username or password");
-                   request.getRequestDispatcher("/Login.jsp").include(request, response);
+                   request.getRequestDispatcher("/Login.jsp").forward(request, response);
                }
                
            }  catch (Exception e) {

@@ -31,7 +31,7 @@
                         <ion-icon name="lock-closed-outline"></ion-icon>
                     </div>
                     <div class="Login_button">
-                        <span>${error}</span>
+                       
                         <input type="submit" value="Login" name="btnLogin" id="Login_btn">
                     </div>
                     <div class="Login_common">
@@ -59,9 +59,21 @@
                 </div>
             </div>
         </div>
-     
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" ></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="Login.js"></script>
+        <script>
+            
+            <%String alertMess = (String) request.getAttribute("error");
+                if (alertMess != null && !alertMess.isEmpty()) {%>
+            let errorr = document.getElementById("Login_error");
+            let errormsg = document.getElementById("error_msg");
+            errormsg.innerHTML = "<%=alertMess%>";
+            errorr.classList.add("error_show");
+            <%                 
+                }
+            %>
+        </script>
     </body>
 </html>

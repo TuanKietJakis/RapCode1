@@ -16,8 +16,12 @@ public class DatabaseConnection {
     
     public static Connection getConnection() throws Exception {
        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-1JMA68C\\\\ADMIN:1433;databaseName=PerfumeShopFinal;"
-                + "user=sa;password=123;encrypt=true;trustServerCertificate=true;");
+        conn = DriverManager.getConnection("jdbc:sqlserver://HAIDANG:1433;"
+                    + "databaseName=PerfumeShop;"
+                    + "user=sa;password=123456;"
+                    + "encrypt=true;"
+                    + "trustServerCertificate=true;"
+                    + "sendStringParametersAsUnicode=true;");
 
         return conn;
     }

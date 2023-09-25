@@ -8,11 +8,11 @@ let error = document.getElementById("Login_error");
 
 // let btn = document.getElementById("Login_btn");
 let close = document.getElementById("close");
-let form = document.getElementById("form_login");
-
+if(error){
 close.addEventListener("click", () => {
   error.classList.remove("error_show");
-});
+});}
+let form = document.getElementById("form_login");
 
 form.addEventListener("submit", function (event) {
   let msg = "";
