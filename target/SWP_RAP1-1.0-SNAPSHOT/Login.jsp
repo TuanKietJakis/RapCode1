@@ -31,6 +31,7 @@
                         <ion-icon name="lock-closed-outline"></ion-icon>
                     </div>
                     <div class="Login_button">
+                        <span>${error}</span>
                         <input type="submit" value="Login" name="btnLogin" id="Login_btn">
                     </div>
                     <div class="Login_common">
@@ -58,16 +59,7 @@
                 </div>
             </div>
         </div>
-        <%
-            String alertMess = (String) request.getAttribute("arletMess");
-            if (alertMess != null && !alertMess.isEmpty()) {
-        %>
-        <script>
-            alert("<%= alertMess%>");
-        </script>
-        <%
-            }
-        %>
+     
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         <script src="Login.js"></script>

@@ -110,11 +110,11 @@ public class LoginController extends HttpServlet {
                         response.sendRedirect("/"); // Chuyển hướng đến trang "Home.jsp" cho người dùng thông thường
                     }
                }else{
-                    request.getRequestDispatcher("/Login.jsp").forward(request, response);
-                    request.setAttribute("arletMess","Login Fail");
+                   request.setAttribute("error", "Wrong username or password");
+                   request.getRequestDispatcher("/Login.jsp").include(request, response);
                }
                
-           } catch (Exception e) {
+           }  catch (Exception e) {
                
            }
        }
