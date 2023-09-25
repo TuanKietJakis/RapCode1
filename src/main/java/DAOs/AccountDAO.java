@@ -18,7 +18,8 @@ import java.util.logging.Logger;
  * @author Kiet
  */
 public class AccountDAO {
-     private Connection conn;
+
+    private Connection conn;
     private PreparedStatement ps;
     private ResultSet rs;
 
@@ -26,7 +27,6 @@ public class AccountDAO {
         conn = DatabaseConnection.getConnection();
     }
 
-    
     public String GetMaxAccountID() {
         String maxID = "";
 
@@ -67,6 +67,7 @@ public class AccountDAO {
             }
         }
         return false;
+
     }
 
     public boolean checkFullnameIsExist(String username) {
@@ -96,8 +97,39 @@ public class AccountDAO {
         return false;
     }
 
+    public boolean checkEmailIsExist(String email) {
+        try {
+            ps = conn.prepareStatement("SELECT Account_ID FROM Account WHERE Email = ?");
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            return rs.next(); // Return true if there is a result, indicating the username already exists
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+                if (ps != null) {
+                    ps.close();
+                }
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                System.out.println(e);
+                throw new RuntimeException(e);
+            }
+        }
+        return false;
+    }
+
 //    public static void main(String[] args) throws Exception {
 //        AccountDAO acc = new AccountDAO();
+//        String username = "vy1235";
+//
+//        acc.checkUserNameIsExist(username);
+//
 //        acc.signup("15", "vy", "vy123", "1", "0123456789", "vy@gmail.com", "abv", "0", "0", "1992-07-06");
 //        System.out.println("Add thanh cong ");
 //    }
@@ -147,7 +179,8 @@ public class AccountDAO {
             }
         }
     }
-      public boolean Login(Account acc) throws SQLException {
+
+    public boolean Login(Account acc) throws SQLException {
         String sql = "SELECT * FROM Account WHERE Username=? AND Password=?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -159,7 +192,7 @@ public class AccountDAO {
         }
         return rs.next();
     }
-    
+
     public boolean IsAdmin(String username) {
         String sql = "SELECT IsAdmin FROM Account WHERE Username = ?";
 
@@ -178,8 +211,7 @@ public class AccountDAO {
 
         return false;
     }
-    
-    
+
     public String GetFullName(String username) {
         String fullname = null;
 
@@ -196,7 +228,7 @@ public class AccountDAO {
         return fullname;
 
     }
-    
+
     public int GetIDFromFullname(String Fullname) {
         int ID = 0;
         String sql = "select Account_ID from Account\n"
@@ -212,5 +244,5 @@ public class AccountDAO {
         }
         return ID;
     }
-    
+
 }

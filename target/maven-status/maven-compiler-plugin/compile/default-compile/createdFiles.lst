@@ -1,4 +1,5 @@
 Models\GetProduct.class
+Controllers\SignUpController.class
 Models\Item.class
 Models\Cart.class
 Models\ProductImage.class
