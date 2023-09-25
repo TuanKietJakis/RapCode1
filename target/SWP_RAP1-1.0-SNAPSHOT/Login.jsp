@@ -19,7 +19,7 @@
                 <span id="close"><ion-icon  name="close-circle-outline"></ion-icon></span>
             </div>
             <div class="Login">
-                <form action="LoginController" id="form_login" method="post">
+                <form action="Login" id="form_login" method="post">
                     <h1>Login</h1>
                     <div class="Login_quote"><text>How can I be more confident?</text></div>
                     <div class="input_box">
@@ -42,7 +42,7 @@
                         <a class="Forget_pass" href="#">Forgot password?</a>
                     </div>
                     <div class="Create">
-                        <a class="create_account" href="#">Create an account</a>
+                        <a class="create_account" href="/SignUp">Create an account</a>
                         <ion-icon name="arrow-forward-outline"></ion-icon>
                     </div>
                 </form>

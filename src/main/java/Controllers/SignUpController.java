@@ -60,10 +60,10 @@ public class SignUpController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        String path = request.getRequestURI();
-//        if (path.endsWith("/SignUpController")) {
-//            request.getRequestDispatcher("/Signup.jsp").forward(request, response);
-//        }
+        String path = request.getRequestURI();
+        if (path.endsWith("/SignUp")) {
+            request.getRequestDispatcher("/Signup.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -107,13 +107,13 @@ public class SignUpController extends HttpServlet {
             }
 
             else if (dao.checkEmailIsExist(email)) {
-                request.setAttribute("Wrong2", "Error! Email Already Exists!");
+                request.setAttribute("Wrong", "Error! Email Already Exists!");
                 request.getRequestDispatcher("/Signup.jsp").forward(request, response);
             }
             else{
             //"16","Kiet2","user6","123","0797119869","onie.mann@hotmail.com ","abc","0","Female","1992-07-06"
             acc.signup(String.valueOf(Integer.parseInt(Account_ID) + 1), "non", username, password, "non", email, "non", "0", "non", "1111-11-11");
-            response.sendRedirect("/LoginController");
+            response.sendRedirect("/Login");
             }
         } catch (Exception ex) {
             Logger.getLogger(SignUpController.class.getName()).log(Level.SEVERE, null, ex);

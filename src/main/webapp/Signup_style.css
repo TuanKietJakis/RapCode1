@@ -58,17 +58,62 @@ img {
 
 body {
   min-height: 100vh;
-  display: flex;
 }
 
 .section {
   position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   width: 100%;
+}
+
+/* --------------Section 2------------------ */
+
+.Signup_Container {
+  display: flex;
+}
+
+.Signup_c_left {
+  position: relative;
+  background: linear-gradient(218deg, rgba(245, 40, 166, 0.54) 28.16%, #F8E49D 66.27%);
+  width: 53.13%;
+  height: 100vh;
+  transition: 0.3s;
+}
+
+.Signup_c_left:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: url(/img/Rectangle6.png);
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+}
+
+.Signup_banner {
+  position: relative;
+}
+
+.Signup_banner img {
+  position: absolute;
+  width: fit-content;
+  backdrop-filter: blur(6.800000190734863px);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  background: lightgray 50% / cover no-repeat;
+  transition: 0.3s;
+}
+
+.Signup_banner_one {
+  top: 66px;
+  left: 86px;
+}
+
+.Signup_banner_two {
+  top: 404px;
+  right: 86px; 
 }
 /* --------------Section 1------------------ */
 
@@ -231,84 +276,7 @@ body {
     color: #ff66c4;
 }
 
-/* --------------Section 2------------------ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  color: #000;
-  font-family: "Poppins", sans-serif;
-}
-
-input {
-  border: none;
-  outline: none;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-/*  */
-.Signup_Container {
-  display: flex;
-}
-
-.Signup_c_left {
-  position: relative;
-  background: linear-gradient(218deg, rgba(245, 40, 166, 0.54) 28.16%, #F8E49D 66.27%);
-  width: 53.13%;
-  height: 100vh;
-  transition: 0.3s;
-}
-
-.Signup_c_left:before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: url(/img/Rectangle6.png);
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-}
-
-.Signup_banner {
-  position: relative;
-}
-
-.Signup_banner img {
-  position: absolute;
-  width: fit-content;
-  backdrop-filter: blur(6.800000190734863px);
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  background: lightgray 50% / cover no-repeat;
-  transition: 0.3s;
-}
-
-.Signup_banner_one {
-  top: 66px;
-  left: 86px;
-}
-
-.Signup_banner_two {
-  top: 404px;
-  right: 86px; 
-}
 
 @media screen and (min-width:1440px) {
   .Signup_banner img {

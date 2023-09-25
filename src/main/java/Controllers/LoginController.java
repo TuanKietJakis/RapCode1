@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getRequestURI();
-        if (path.endsWith("/LoginController")) {
+        if (path.endsWith("/Login")) {
             request.getRequestDispatcher("/Login.jsp").forward(request, response);
         }
     }
